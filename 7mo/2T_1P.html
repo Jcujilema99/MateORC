@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7.º Básica - Matemática - Unidad 3</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-top: 110px;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #3b82f6, #9333ea);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    header h1 { margin: 0; font-size: 1.5rem; }
+    nav { margin-top: .5rem; }
+    nav a {
+      background: #facc15;
+      padding: 6px 14px;
+      margin: 0 4px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+    .contenedor {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: 1rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    h2 { text-align: center; color: #3b82f6; }
+    h3 { color: #9333ea; margin-top: 1.5rem; }
+    h4 { color: #3b82f6; margin-top: 1rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+      text-align: center;
+      padding: 8px;
+    }
+    th { background: #f9fafb; }
+    pre {
+      background: #f3f4f6;
+      padding: .8rem;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .fecha {
+      text-align: center;
+      font-weight: bold;
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      color: #92400e;
+    }
+    .btn-imprimir {
+      padding: 10px 18px;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      background: #111827;
+      color: #ddd;
+      padding: 1rem;
+      font-size: .9rem;
+      margin-top: auto;
+    }
+    footer span { color: #facc15; font-weight: bold; }
+
+    /* ===== SOLO IMPRESIÓN ===== */
+    @media print {
+      header, nav, .btn-imprimir, footer {
+        display: none !important;
+      }
+      @page {
+        margin: 1cm;
+      }
+      body {
+        background: white;
+        padding: 0;
+      }
+      main.contenedor {
+        box-shadow: none;
+        margin: 0 auto;
+        border-radius: 0;
+        width: 95%;
+        max-width: 100%;
+      }
+      table {
+        font-size: 0.95rem;
+        word-wrap: break-word;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>7.º Básica - Matemática</h1>
+    <nav>
+      <a href="../../index.html">🏠 Inicio</a>
+      <a href="2T_1P.html">2T - 1P</a>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="contenedor" id="contenido">
+    <div class="fecha">📅 Fecha de presentación: 8 de septiembre del 2025</div>
+
+    <button class="btn-imprimir" onclick="window.print()">📥 Imprimir / Guardar en PDF</button>
+
+    <h2>Unidad 3: Álgebra y funciones (III)<br>Aplicaciones de proporciones</h2>
+
+    <h3>1. Repartos proporcionales</h3>
+    <p>Un <b>reparto proporcional</b> divide una cantidad total en partes que guardan una relación dada.</p>
+
+    <p><b>Ejemplo:</b> Repartir <b>960 $</b> entre 4 socios en razón 3 : 5 : 7 : 9</p>
+    <p>Fórmula: <b>Valor de 1 parte = Total ÷ Suma de razones</b></p>
+    <ul>
+      <li><b>Total</b> = cantidad a repartir</li>
+      <li><b>Suma de razones</b> = suma de todos los números de la proporción</li>
+    </ul>
+    <table>
+      <tr><th>Socio</th><th>Razón</th><th>Cálculo</th><th>Reparto</th></tr>
+      <tr><td>A</td><td>3</td><td>3 × 40</td><td>120 $</td></tr>
+      <tr><td>B</td><td>5</td><td>5 × 40</td><td>200 $</td></tr>
+      <tr><td>C</td><td>7</td><td>7 × 40</td><td>280 $</td></tr>
+      <tr><td>D</td><td>9</td><td>9 × 40</td><td>360 $</td></tr>
+    </table>
+    <p><b>Respuesta:</b> Los socios reciben <b>120 $, 200 $, 280 $ y 360 $</b> respectivamente.</p>
+
+    <h3>2. Regla de tres directa</h3>
+    <p>Se aplica cuando al <b>aumentar</b> una magnitud, la otra también <b>aumenta</b>.</p>
+    <p><b>Fórmula:</b> <span style="font-size:1.2rem;"><b>x = (b × c) ÷ a</b></span></p>
+    <ul>
+      <li><b>a</b> = primera cantidad conocida</li>
+      <li><b>b</b> = valor correspondiente</li>
+      <li><b>c</b> = nueva cantidad</li>
+      <li><b>x</b> = valor buscado</li>
+    </ul>
+
+    <p><b>Ejemplo:</b> 15 obreros construyen un puente en 48 días. ¿Cuántos días necesitarán 25 obreros?</p>
+    <table>
+      <tr><th>Obreros</th><th>Días</th></tr>
+      <tr><td>15</td><td>48</td></tr>
+      <tr><td>25</td><td>x</td></tr>
+    </table>
+    <p>Cálculo: (15 × 48) ÷ 25 = 28,8 ≈ <b>29 días</b></p>
+    <p><b>Respuesta:</b> Con 25 obreros se terminará la obra en aproximadamente <b>29 días</b>.</p>
+
+    <h3>3. Regla de tres inversa</h3>
+    <p>Se aplica cuando al <b>aumentar</b> una magnitud, la otra <b>disminuye</b>.</p>
+    <p><b>Fórmula:</b> <span style="font-size:1.2rem;"><b>x = (a × b) ÷ c</b></span></p>
+    <ul>
+      <li><b>a</b> = primera magnitud</li>
+      <li><b>b</b> = valor correspondiente</li>
+      <li><b>c</b> = nueva magnitud</li>
+      <li><b>x</b> = valor buscado</li>
+    </ul>
+
+    <p><b>Ejemplo:</b> 12 grifos llenan una piscina en 16 h. ¿Cuánto tardarán 8 grifos?</p>
+    <table>
+      <tr><th>Grifos</th><th>Horas</th></tr>
+      <tr><td>12</td><td>16</td></tr>
+      <tr><td>8</td><td>x</td></tr>
+    </table>
+    <p>Cálculo: (12 × 16) ÷ 8 = <b>24 h</b></p>
+    <p><b>Respuesta:</b> Con 8 grifos se llenará la piscina en <b>24 horas</b>.</p>
+
+    <h3>4. Regla de tres compuesta</h3>
+    <p>Se aplica cuando intervienen más de dos magnitudes.</p>
+    <p><b>Fórmula:</b> <span style="font-size:1.2rem;"><b>x = (producto de magnitudes conocidas) ÷ (producto de magnitudes base)</b></span></p>
+
+    <p><b>Ejemplo:</b> 6 obreros fabrican 300 piezas en 12 días trabajando 8 h/día.  
+       ¿Cuántas piezas harán 9 obreros en 16 días trabajando 10 h/día?</p>
+    <ol>
+      <li>Multiplicamos: 300 × 9 × 16 × 10 = 432000</li>
+      <li>Dividimos: 432000 ÷ (6 × 12 × 8) = 432000 ÷ 576</li>
+      <li>Resultado: 750 piezas</li>
+    </ol>
+    <p><b>Respuesta:</b> Los 9 obreros fabricarán <b>750 piezas</b> en esas condiciones.</p>
+
+    <h3>5. Porcentajes en la vida cotidiana</h3>
+    <p><b>Fórmula:</b> <span style="font-size:1.2rem;"><b>P = (Cantidad × %)/100</b></span></p>
+    <ul>
+      <li><b>P</b> = valor del porcentaje</li>
+      <li><b>Cantidad</b> = número base</li>
+      <li><b>%</b> = porcentaje dado</li>
+    </ul>
+
+    <p><b>Ejemplo:</b> Una computadora cuesta 1200 $. Tiene descuento de 25% y luego otro de 15%.</p>
+    <ol>
+      <li>Primer descuento: 1200 × 0.75 = 900</li>
+      <li>Segundo descuento: 900 × 0.85 = 765</li>
+      <li>Resultado final: 765 $</li>
+    </ol>
+    <p><b>Respuesta:</b> Tras aplicar ambos descuentos, la computadora costará <b>765 $</b>.</p>
+
+    <h3>6. Interés simple</h3>
+    <p>El <b>interés simple</b> se calcula con la fórmula:</p>
+    <p style="text-align:center; font-size:1.2rem;"><b>I = C × i × t</b></p>
+
+    <p><b>Donde:</b></p>
+    <ul>
+      <li><b>I</b> = Interés (dinero que se gana o se paga)</li>
+      <li><b>C</b> = Capital (dinero prestado o invertido)</li>
+      <li><b>i</b> = Tasa de interés (en decimal, ej. 14% = 0,14)</li>
+      <li><b>t</b> = Tiempo (en años o fracción de año)</li>
+    </ul>
+
+    <p><b>Ejemplo:</b> Un préstamo de 5000 $ al 14% anual durante 3 años y 6 meses.</p>
+    <ol>
+      <li>Tiempo = 3,5 años</li>
+      <li>I = 5000 × 0.14 × 3.5 = 2450</li>
+      <li>Resultado: 2450 $</li>
+    </ol>
+    <p><b>Respuesta:</b> El interés total será de <b>2450 $</b> al cabo de 3 años y medio.</p>
+
+    <h3>7. Documentos comerciales</h3>
+    <p>Son comprobantes utilizados en transacciones económicas:</p>
+    <ul>
+      <li><b>Factura:</b> documento legal de compra.</li>
+      <li><b>Recibo:</b> comprobante de pago recibido.</li>
+      <li><b>Nota de venta:</b> operaciones menores.</li>
+    </ul>
+
+    <p><b>Ejemplo:</b> Una factura por 1500 $ con IVA del 12% y descuento del 10%.</p>
+    <ol>
+      <li>Subtotal = 1500</li>
+      <li>IVA = 1500 × 0.12 = 180</li>
+      <li>Total con IVA = 1680</li>
+      <li>Descuento = 1680 × 0.10 = 168</li>
+      <li>Precio final: 1512 $</li>
+    </ol>
+    <p><b>Respuesta:</b> El cliente pagará finalmente <b>1512 $</b> después de aplicar IVA y descuento.</p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    Desarrollado por <span>Ing. Jonathan Israel Cujilema Yunda</span> © 2025
+  </footer>
+</body>
+</html>

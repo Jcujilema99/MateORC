@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio - Plataforma Educativa</title>
+  <style>
+    /* ====== RESET ====== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #f9fafb;
+      overflow-x: hidden;
+    }
+
+    /* ====== HEADER ====== */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: linear-gradient(45deg, #3b82f6, #9333ea);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 45px;
+      margin-right: 10px;
+    }
+    .nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .nav a:hover {
+      color: #facc15;
+    }
+
+    /* ====== HERO ====== */
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(to right, #3b82f6, #9333ea);
+      color: white;
+      animation: fadeIn 2s ease-in-out;
+      padding: 1rem;
+    }
+    .hero-content {
+      max-width: 700px;
+      animation: slideUp 1.5s ease-in-out;
+    }
+    .hero .foto {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 4px solid #facc15;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #facc15;
+      color: black;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* ====== CURSOS ====== */
+    .cursos {
+      padding: 3rem 2rem;
+      text-align: center;
+      background: #f4f4f9;
+    }
+    .cursos h2 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .curso-botones {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+    }
+
+    .curso-card {
+      border-radius: 20px;
+      padding: 2rem 1rem;
+      width: 100%;
+      max-width: 260px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+    }
+    .curso-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .curso-icono {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .curso-titulo {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .curso-5 { background: linear-gradient(135deg,#3b82f6,#60a5fa); }
+    .curso-6 { background: linear-gradient(135deg,#10b981,#34d399); }
+    .curso-7 { background: linear-gradient(135deg,#f59e0b,#fbbf24); }
+    .curso-8 { background: linear-gradient(135deg,#ef4444,#f87171); }
+    .curso-9 { background: linear-gradient(135deg,#8b5cf6,#a78bfa); }
+
+    /* ====== FOOTER ====== */
+    .footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #111827;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    /* ====== MODAL ====== */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    .modal {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      text-align: center;
+      width: 100%;
+      max-width: 450px;
+      animation: slideUpModal 0.4s ease;
+      position: relative;
+    }
+    .modal h3 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    .modal-botones {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .modal-botones h4 {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #9333ea;
+      font-size: 1rem;
+    }
+    .modal-botones a {
+      display: block;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      transition: transform 0.2s, background 0.3s;
+    }
+    .modal-botones a:hover {
+      transform: scale(1.05);
+    }
+    .cerrar {
+      position: absolute;
+      top: 10px; right: 10px;
+      border: none;
+      background: transparent;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /* Colores diferenciados */
+    .materia { background: #3b82f6; color: white; }
+    .materia:hover { background: #2563eb; }
+    .parcial { background: #f59e0b; color: white; }
+    .parcial:hover { background: #d97706; }
+    .trimestral { background: #ef4444; color: white; }
+    .trimestral:hover { background: #b91c1c; }
+
+    /* RESPONSIVE */
+    @media (min-width: 500px) {
+      .modal-botones {
+        grid-template-columns: 1fr 1fr;
+      }
+      .modal-botones h4 {
+        grid-column: span 2;
+      }
+    }
+
+    /* ====== ANIMATIONS ====== */
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    @keyframes slideUp { from {transform: translateY(50px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+    @keyframes slideUpModal { from {transform: translateY(100px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <img src="/LOGO/Logo.png" alt="Logo">
+      <h1>Plataforma Educativa</h1>
+    </div>
+    <nav class="nav">
+      <a href="#cursos">Cursos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <img class="foto" src="/LOGO/JC.png" alt="Foto de Jonathan">
+      <h2>Bienvenido a la Plataforma Educativa</h2>
+      <p>Un espacio interactivo para estudiantes de 5.º, 6.º, 7.º, 8.º y 9.º donde encontrarás material didáctico, cuestionarios y soluciones para los exámenes.</p>
+      <a href="#cursos" class="btn">Ver Cursos</a>
+    </div>
+  </section>
+
+  <!-- CURSOS -->
+  <section class="cursos" id="cursos">
+    <h2>Selecciona tu curso</h2>
+    <div class="curso-botones">
+      <div onclick="abrirModal('modal5')" class="curso-card curso-5"><div class="curso-icono">📘</div><div class="curso-titulo">5.º Grado</div></div>
+      <div onclick="abrirModal('modal6')" class="curso-card curso-6"><div class="curso-icono">📗</div><div class="curso-titulo">6.º Grado</div></div>
+      <div onclick="abrirModal('modal7')" class="curso-card curso-7"><div class="curso-icono">📙</div><div class="curso-titulo">7.º Grado</div></div>
+      <div onclick="abrirModal('modal8')" class="curso-card curso-8"><div class="curso-icono">📕</div><div class="curso-titulo">8.º Grado</div></div>
+      <div onclick="abrirModal('modal9')" class="curso-card curso-9"><div class="curso-icono">📓</div><div class="curso-titulo">9.º Grado</div></div>
+    </div>
+  </section>
+
+  <!-- MODALES (UNO POR CURSO) -->
+  <!-- Modal 5to -->
+  <div class="overlay" id="modal5">
+    <div class="modal">
+      <button class="cerrar" onclick="cerrarModal('modal5')">✖</button>
+      <h3>5.º Grado</h3>
+      <div class="modal-botones">
+        <h4>2º Trimestre</h4>
+        <a class="materia" href="/5to/2T_1P.html">Materia</a>
+        <!--<a class="parcial" href="MateORC/5to/2T_1P_test.html">Cuestionario 1P</a>
+        <a class="materia" href="MateORC/5to/2T_2P.html">Materia 2P</a>
+        <a class="parcial" href="MateORC/5to/2T_2P_test.html">Cuestionario 2P</a>
+        <a class="trimestral" href="MateORC/5to/2T_Trimestral_test.html">Cuestionario Trimestral</a>
+        <h4>3º Trimestre</h4>
+        <a class="materia" href="MateORC/5to/3T_1P.html">Materia 1P</a>
+        <a class="parcial" href="MateORC/5to/3T_1P_test.html">Cuestionario 1P</a>
+        <a class="materia" href="MateORC/5to/3T_2P.html">Materia 2P</a>
+        <a class="parcial" href="MateORC/5to/3T_2P_test.html">Cuestionario 2P</a>
+        <a class="trimestral" href="MateORC/5to/3T_Trimestral_test.html">Cuestionario Trimestral</a> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6to -->
+  <div class="overlay" id="modal6">
+    <div class="modal">
+      <button class="cerrar" onclick="cerrarModal('modal6')">✖</button>
+      <h3>6.º Grado</h3>
+      <div class="modal-botones">
+        <h4>2º Trimestre</h4>
+        <a class="materia" href="/6to/2T_1P.html">Materia 1P</a>
+        <!--<a class="parcial" href="MateORC/6to/2T_1P_test.html">Cuestionario 1P</a>
+        <a class="materia" href="MateORC/6to/2T_2P.html">Materia 2P</a>
+        <a class="parcial" href="MateORC/6to/2T_2P_test.html">Cuestionario 2P</a>
+        <a class="trimestral" href="MateORC/6to/2T_Trimestral_test.html">Cuestionario Trimestral</a>
+        <h4>3º Trimestre</h4>
+        <a class="materia" href="MateORC/6to/3T_1P.html">Materia 1P</a>
+        <a class="parcial" href="MateORC/6to/3T_1P_test.html">Cuestionario 1P</a>
+        <a class="materia" href="MateORC/6to/3T_2P.html">Materia 2P</a>
+        <a class="parcial" href="MateORC/6to/3T_2P_test.html">Cuestionario 2P</a>
+        <a class="trimestral" href="MateORC/6to/3T_Trimestral_test.html">Cuestionario Trimestral</a> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 7to -->
+  <div class="overlay" id="modal7">
+    <div class="modal">
+      <button class="cerrar" onclick="cerrarModal('modal7')">✖</button>
+      <h3>7.º Grado</h3>
+      <div class="modal-botones">
+        <h4>2º Trimestre</h4>
+        <a class="materia" href="/7mo/2T_1P.html">Materia 1P</a>
+        <!--<a class="parcial" href="MateORC/7to/2T_1P_test.html">Cuestionario 1P</a>
+        <a class="materia" href="MateORC/7to/2T_2P.html">Materia 2P</a>
+        <a class="parcial" href="MateORC/7to/2T_2P_test.html">Cuestionario 2P</a>
+        <a class="trimestral" href="MateORC/7to/2T_Trimestral_test.html">Cuestionario Trimestral</a>
+        <h4>3º Trimestre</h4>
+        <a class="materia" href="MateORC/7to/3T_1P.html">Materia 1P</a>
+        <a class="parcial" href="MateORC/7to/3T_1P_test.html">Cuestionario 1P</a>
+        <a class="materia" href="MateORC/7to/3T_2P.html">Materia 2P</a>
+        <a class="parcial" href="MateORC/7to/3T_2P_test.html">Cuestionario 2P</a>
+        <a class="trimestral" href="MateORC/7to/3T_Trimestral_test.html">Cuestionario Trimestral</a> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 8vo -->
+  <div class="overlay" id="modal8">
+    <div class="modal">
+      <button class="cerrar" onclick="cerrarModal('modal8')">✖</button>
+      <h3>8.º Grado</h3>
+      <div class="modal-botones">
+        <h4>2º Trimestre</h4>
+        <a class="materia" href="/8vo/2T_1P.html">Materia 1P</a>
+       <!-- <a class="parcial" href="MateORC/8vo/2T_1P_test.html">Cuestionario 1P</a>
+        <a class="materia" href="MateORC/8vo/2T_2P.html">Materia 2P</a>
+        <a class="parcial" href="MateORC/8vo/2T_2P_test.html">Cuestionario 2P</a>
+        <a class="trimestral" href="MateORC/8vo/2T_Trimestral_test.html">Cuestionario Trimestral</a>
+        <h4>3º Trimestre</h4>
+        <a class="materia" href="MateORC/8vo/3T_1P.html">Materia 1P</a>
+        <a class="parcial" href="MateORC/8vo/3T_1P_test.html">Cuestionario 1P</a>
+        <a class="materia" href="MateORC/8vo/3T_2P.html">Materia 2P</a>
+        <a class="parcial" href="MateORC/8vo/3T_2P_test.html">Cuestionario 2P</a>
+        <a class="trimestral" href="MateORC/8vo/3T_Trimestral_test.html">Cuestionario Trimestral</a> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 9no -->
+  <div class="overlay" id="modal9">
+    <div class="modal">
+      <button class="cerrar" onclick="cerrarModal('modal9')">✖</button>
+      <h3>9.º Grado</h3>
+      <div class="modal-botones">
+        <h4>2º Trimestre</h4>
+        <a class="materia" href="/9no/2T_1P.html">Materia 1P</a>
+       <!-- <a class="parcial" href="MateORC/9no/2T_1P_test.html">Cuestionario 1P</a>
+        <a class="materia" href="MateORC/9no/2T_2P.html">Materia 2P</a>
+        <a class="parcial" href="MateORC/9no/2T_2P_test.html">Cuestionario 2P</a>
+        <a class="trimestral" href="MateORC/9no/2T_Trimestral_test.html">Cuestionario Trimestral</a>
+        <h4>3º Trimestre</h4>
+        <a class="materia" href="MateORC/9no/3T_1P.html">Materia 1P</a>
+        <a class="parcial" href="MateORC/9no/3T_1P_test.html">Cuestionario 1P</a>
+        <a class="materia" href="MateORC/9no/3T_2P.html">Materia 2P</a>
+        <a class="parcial" href="MateORC/9no/3T_2P_test.html">Cuestionario 2P</a>
+        <a class="trimestral" href="MateORC/9no/3T_Trimestral_test.html">Cuestionario Trimestral</a> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contacto">
+    <p>Desarrollador: <strong>Ing. Jonathan Israel Cujilema Yunda</strong></p>
+    <p>&copy; 2025 - Plataforma Educativa</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function abrirModal(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+    function cerrarModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+  </script>
+</body>
+</html>

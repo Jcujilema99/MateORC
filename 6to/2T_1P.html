@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6.º Básica - Matemática - Unidad 3</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-top: 110px;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #3b82f6, #9333ea);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    header h1 { margin: 0; font-size: 1.5rem; }
+    nav { margin-top: .5rem; }
+    nav a {
+      background: #facc15;
+      padding: 6px 14px;
+      margin: 0 4px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+    .contenedor {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: 1rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    h2 { text-align: center; color: #3b82f6; }
+    h3 { color: #9333ea; margin-top: 1.5rem; }
+    h4 { color: #3b82f6; margin-top: 1rem; }
+    table {
+      width: auto;
+      margin: 1rem auto;
+      border-collapse: collapse;
+    }
+    table td {
+      text-align: right;
+      padding: 2px 8px;
+    }
+    .linea { border-top: 1px solid #000; }
+    .fecha {
+      text-align: center;
+      font-weight: bold;
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      color: #92400e;
+    }
+    .btn-imprimir {
+      padding: 10px 18px;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      background: #111827;
+      color: #ddd;
+      padding: 1rem;
+      font-size: .9rem;
+      margin-top: auto;
+    }
+    footer span { color: #facc15; font-weight: bold; }
+
+    /* ===== SOLO IMPRESIÓN ===== */
+    @media print {
+      header, nav, .btn-imprimir, footer {
+        display: none !important;
+      }
+      @page {
+        margin: 1cm;
+      }
+      body {
+        background: white;
+        padding: 0;
+      }
+      main.contenedor {
+        box-shadow: none;
+        margin: 0 auto;
+        border-radius: 0;
+        width: 95%;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>6.º Básica - Matemática</h1>
+    <nav>
+      <a href="../../index.html">🏠 Inicio</a>
+      <a href="2T_1P.html">2T - 1P</a>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="contenedor" id="contenido">
+    <div class="fecha">📅 Fecha de presentación: 8 de septiembre del 2025</div>
+
+    <button class="btn-imprimir" onclick="window.print()">📥 Imprimir / Guardar en PDF</button>
+
+    <h2>Unidad 3: Álgebra y funciones (III)<br>Números decimales y operaciones</h2>
+
+    <h3>1. Números decimales</h3>
+    <p>
+      Los números decimales permiten expresar valores más precisos que los enteros.  
+      Están compuestos por:
+    </p>
+    <ul>
+      <li><b>Parte entera</b>: números a la izquierda de la coma.</li>
+      <li><b>Parte decimal</b>: números a la derecha de la coma.</li>
+    </ul>
+    <p><b>Ejemplo 1:</b> <b>45,372</b> → parte entera = <b>45</b>, parte decimal = <b>372</b> (milésimas).</p>
+    <p><b>Ejemplo 2:</b> <b>128,5</b> → parte entera = <b>128</b>, parte decimal = <b>5</b> (décimas).</p>
+
+    <h3>2. Lectura y escritura de decimales</h3>
+    <p>
+      Para leer un decimal se nombra la parte entera, se dice <b>“con”</b> y luego la parte decimal según su valor posicional.
+    </p>
+    <ul>
+      <li><b>3,4</b> → “tres enteros con <b>cuatro décimas</b>”.</li>
+      <li><b>7,25</b> → “siete enteros con <b>veinticinco centésimas</b>”.</li>
+      <li><b>12,307</b> → “doce enteros con <b>trescientos siete milésimas</b>”.</li>
+    </ul>
+
+    <h3>3. Comparación y orden</h3>
+    <p>
+      Para comparar dos decimales:<br>  
+      1) Primero se observan las <b>partes enteras</b>.<br> 
+      2) Si son iguales, se comparan las <b>décimas</b>, luego las <b>centésimas</b> y finalmente las <b>milésimas</b>.
+    </p>
+    <table>
+      <tr><th>Número</th><th>Entero</th><th>Décima</th><th>Centésima</th><th>Milésima</th></tr>
+      <tr><td><b>23,456</b></td><td>23</td><td>4</td><td>5</td><td>6</td></tr>
+      <tr><td><b>23,461</b></td><td>23</td><td>4</td><td>6</td><td>1</td></tr>
+    </table>
+    <p><b>Resultado:</b> 23,456 es menor que 23,461.</p>
+
+    <h3>4. Operaciones con decimales</h3>
+
+    <h4>➕ Suma y resta</h4>
+    <p><b>Regla:</b> Se alinean las comas y se operan como enteros.</p>
+
+    <p><b>Ejemplo 1:</b> 45,270 + 18,356</p>
+    <table>
+      <tr><td>45,270</td></tr>
+      <tr><td>+ 18,356</td></tr>
+      <tr><td class="linea">63,626</td></tr>
+    </table>
+    <p><b>Respuesta:</b> La suma de 45,270 y 18,356 es <b>63,626</b>.</p>
+
+    <p><b>Ejemplo 2:</b> 56,430 – 12,500</p>
+    <table>
+      <tr><td>56,430</td></tr>
+      <tr><td>– 12,500</td></tr>
+      <tr><td class="linea">43,930</td></tr>
+    </table>
+    <p><b>Respuesta:</b> Al restar 12,500 a 56,430 se obtiene <b>43,930</b>.</p>
+
+    <h4>✖ Multiplicación</h4>
+    <p><b>Regla:</b> Se multiplica ignorando la coma y luego se coloca según los decimales.</p>
+
+    <p><b>Ejemplo 1:</b> 12,3 × 4,56</p>
+    <ol>
+      <li>Ignoramos comas: 123 × 456 = <b>56088</b></li>
+      <li>Total decimales: 1 + 2 = <b>3</b></li>
+      <li>Resultado: <b>56,088</b></li>
+    </ol>
+    <p><b>Respuesta:</b> El producto de 12,3 por 4,56 es <b>56,088</b>.</p>
+
+    <p><b>Ejemplo 2:</b> 3,25 × 2,4</p>
+    <ol>
+      <li>Ignoramos comas: 325 × 24 = <b>7800</b></li>
+      <li>Total decimales: 2 + 1 = <b>3</b></li>
+      <li>Resultado: <b>7,800 → 7,8</b></li>
+    </ol>
+    <p><b>Respuesta:</b> El producto de 3,25 por 2,4 es <b>7,8</b>.</p>
+
+    <h4>➗ División</h4>
+    <p><b>Regla:</b> El divisor se transforma en entero moviendo la coma.</p>
+
+    <p><b>Ejemplo 1:</b> 25,6 ÷ 1,6</p>
+    <ol>
+      <li>Convertimos: <b>256 ÷ 16</b></li>
+      <li>Resultado: <b>16</b></li>
+    </ol>
+    <p><b>Respuesta:</b> Al dividir 25,6 entre 1,6 se obtiene <b>16</b>.</p>
+
+    <p><b>Ejemplo 2:</b> 15,75 ÷ 0,5</p>
+    <ol>
+      <li>Convertimos: <b>1575 ÷ 5</b></li>
+      <li>Resultado: <b>315</b></li>
+    </ol>
+    <p><b>Respuesta:</b> Al dividir 15,75 entre 0,5 se obtiene <b>315</b>.</p>
+
+    <h3>5. Redondeo</h3>
+    <p>
+      Para redondear:  
+      - Si el dígito siguiente es <b>mayor o igual a 5</b>, se suma 1.  
+      - Si es <b>menor a 5</b>, se mantiene igual.
+    </p>
+    <p><b>Ejemplo 1:</b> 12,478 a centésimas → el <b>8 ≥ 5</b>, se suma 1 → <b>12,48</b></p>
+    <p><b>Respuesta:</b> Redondeado a centésimas, 12,478 es <b>12,48</b>.</p>
+
+    <p><b>Ejemplo 2:</b> 9,624 a décimas → el <b>2 &lt; 5</b>, se mantiene igual → <b>9,6</b></p>
+    <p><b>Respuesta:</b> Redondeado a décimas, 9,624 es <b>9,6</b>.</p>
+
+    <h3>6. Magnitudes directamente proporcionales</h3>
+    <p>
+      Dos magnitudes son directamente proporcionales cuando al multiplicar una por un número, la otra también lo hace en la misma proporción.
+    </p>
+    <p><b>Ejemplo 1:</b> 2 kg de manzanas cuestan 5,40 $. ¿Cuánto costarán 7 kg?</p>
+    <p>(7 × 5,40) ÷ 2 = <b>18,90</b></p>
+    <p><b>Respuesta:</b> 7 kg de manzanas costarán <b>18,90 $</b>.</p>
+
+    <p><b>Ejemplo 2:</b> Una bicicleta recorre 12 km en 2 h. ¿Cuántos km recorrerá en 5 h?</p>
+    <p>(5 × 12) ÷ 2 = <b>30 km</b></p>
+    <p><b>Respuesta:</b> En 5 horas la bicicleta recorrerá <b>30 km</b>.</p>
+
+    <h3>7. Porcentajes</h3>
+    <p>
+      Un porcentaje representa una parte de 100.  
+      Fórmula: <b>(cantidad × porcentaje) ÷ 100</b>.
+    </p>
+    <p><b>Ejemplo 1:</b> Precio = 800 $, descuento 12%.</p>
+    <p>Descuento = (800 × 12) ÷ 100 = 96 → Precio final = <b>704 $</b></p>
+    <p><b>Respuesta:</b> Con un descuento del 12%, el precio de 800 $ se reduce a <b>704 $</b>.</p>
+
+    <p><b>Ejemplo 2:</b> ¿El 15% de 240?</p>
+    <p>(240 × 15) ÷ 100 = <b>36</b></p>
+    <p><b>Respuesta:</b> El 15% de 240 es <b>36</b>.</p>
+
+    <h3>8. Solución de problemas</h3>
+    <p>
+      Para resolver problemas aplicados:  
+      - Identificar datos.  
+      - Escoger la operación adecuada.  
+      - Resolver paso a paso.  
+      - Expresar claramente la respuesta.
+    </p>
+
+    <p><b>Ejemplo 1:</b> Un coche recorre 12,8 km con 1 litro de gasolina. ¿Cuánto recorrerá con 7,5 litros?</p>
+    <p>Cálculo: 12,8 × 7,5 = 96</p>
+    <p><b>Respuesta:</b> Con 7,5 litros el coche recorrerá <b>96 kilómetros</b>.</p>
+
+    <p><b>Ejemplo 2:</b> Una piscina se llena en 4,5 h con 1 bomba. ¿En cuánto tiempo se llenará con 3 bombas?</p>
+    <p>Cálculo: 4,5 ÷ 3 = 1,5 h = 1 h 30 min</p>
+    <p><b>Respuesta:</b> Con 3 bombas la piscina se llenará en <b>1 hora y 30 minutos</b>.</p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    Desarrollado por <span>Ing. Jonathan Israel Cujilema Yunda</span> © 2025
+  </footer>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9no Básica - Matemática (2T - 1P)</title>
+  <style>
+    /* ===== RESET ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #f3f4f6;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(90deg, #3b82f6, #9333ea);
+      color: white;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      animation: slideDown 1s ease;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    header h1::before {
+      content: "📘";
+    }
+
+    /* ===== NAV BUTTONS ===== */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #111;
+      background: linear-gradient(135deg, #facc15, #f59e0b);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease-in-out;
+    }
+    nav a:hover {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: white;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    /* ===== CONTENEDOR ===== */
+    .contenedor {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      animation: fadeIn 1.5s ease;
+      flex-grow: 1;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #3b82f6;
+      margin-bottom: 1rem;
+      text-align: center;
+      animation: popIn .8s ease;
+    }
+    h3 {
+      margin-top: 1.5rem;
+      color: #9333ea;
+      font-size: 1.3rem;
+      border-left: 5px solid #9333ea;
+      padding-left: .5rem;
+    }
+    p, ul { margin: 1rem 0; font-size: 1.05rem; }
+    ul li { margin: .5rem 0; }
+
+    /* ===== BOTÓN IMPRIMIR ===== */
+    .btn-imprimir {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #10b981, #34d399);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .btn-imprimir:hover {
+      transform: scale(1.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111827;
+      color: #d1d5db;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+    footer span {
+      color: #facc15;
+      font-weight: bold;
+    }
+
+    /* ===== ANIMACIONES ===== */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideDown {
+      from {transform: translateY(-100%);}
+      to {transform: translateY(0);}
+    }
+    @keyframes popIn {
+      0% {transform: scale(0.8); opacity: 0;}
+      100% {transform: scale(1); opacity: 1;}
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.2rem; }
+      .contenedor { padding: 1.2rem; }
+      h2 { font-size: 1.5rem; }
+      h3 { font-size: 1.1rem; }
+      p, ul { font-size: 1rem; }
+    }
+    @media (max-width: 480px) {
+      nav a {
+        flex: 1 1 100%;
+        justify-content: center;
+      }
+      .btn-imprimir {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* ===== ESTILOS DE IMPRESIÓN ===== */
+    @media print {
+      header, nav, .btn-imprimir, footer {
+        display: none !important; /* oculta header, menú, botón y footer */
+      }
+      body {
+        background: white;
+        color: black;
+      }
+      .contenedor {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>9no Básica - Matemática</h1>
+    <nav>
+      <a href="../../index.html">🏠 Inicio</a>
+      <a href="2T_1P.html">2T - 1P</a>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="contenedor" id="contenido">
+    <button class="btn-imprimir" onclick="guardarPDF()">📥 Imprimir / Guardar en PDF</button>
+
+    <h2>En proceso...</h2>
+    <p>El contenido de esta página está en desarrollo y se publicará próximamente. Por favor, vuelva más tarde para acceder a los recursos y materiales educativos.</p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    Desarrollado por <span>Ing. Jonathan Israel Cujilema Yunda</span> © 2025
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function guardarPDF() {
+      document.title = "5to_Mate_2T_1P"; 
+      window.print();
+    }
+  </script>
+</body>
+</html>
