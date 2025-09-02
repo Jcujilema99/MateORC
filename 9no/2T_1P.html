@@ -113,6 +113,7 @@
     }
     th { background: #f9fafb; }
     table { font-size: 0.9rem; }
+    svg { max-width: 100%; height: auto; }
 
     /* 📱 Ajustes responsive */
     @media (max-width: 768px) {
@@ -173,61 +174,65 @@
 
     <!-- 1. EXPRESIONES ALGEBRAICAS -->
     <h3>1. Expresiones algebraicas</h3>
-    <p>Son combinaciones de números, variables y operaciones. Permiten generalizar cálculos y modelar situaciones reales.</p>
+    <p>Son combinaciones de números, variables y operaciones matemáticas. Sirven para representar situaciones generales y modelar problemas de la vida diaria.</p>
 
-    <h4>Tipos</h4>
+    <h4>Tipos de expresiones</h4>
     <ul>
-      <li>Según número de términos: monomio, binomio, trinomio, polinomio.</li>
-      <li>Según el grado: lineales, cuadráticas, cúbicas, etc.</li>
-      <li>Según su forma: completos o incompletos.</li>
+      <li>Monomio: un solo término (\(7x\)).</li>
+      <li>Binomio: dos términos (\(x+5\)).</li>
+      <li>Trinomio: tres términos (\(x^2+2x+1\)).</li>
+      <li>Polinomio: cuatro o más términos (\(2x^3-4x^2+3x-7\)).</li>
     </ul>
 
+    <h4>Valor numérico</h4>
+    <p>Se obtiene al sustituir la variable por un número y efectuar las operaciones.</p>
     <div class="ejemplo">
-      <b>Ejemplo algebraico:</b> Identificar \(4x^3-2x^2+7\).<br>
+      <b>Ejemplo:</b> Calcular el valor de \(P(x)=2x^2-3x+5\) para \(x=4\).<br>
       <ol>
-        <li>Tres términos → trinomio.</li>
-        <li>Grado 3 → polinomio cúbico.</li>
-        <li>Incompleto porque no aparece \(x^1\).</li>
+        <li>Reemplazamos: \(2(4^2)-3(4)+5\).</li>
+        <li>Operamos: \(2(16)-12+5=32-12+5=25\).</li>
       </ol>
-    </div>
-
-    <div class="ejemplo">
-      <b>Ejemplo contextualizado:</b> El costo de producir \(x\) camisas es \(C(x)=2x+50\).  
-      Es un binomio lineal: 2 representa costo variable y 50 costo fijo.
-    </div>
-
-    <div class="resumen">
-      <b>Resumen:</b> Las expresiones algebraicas pueden clasificarse según términos, grado y forma. Se usan para representar cantidades variables.
+      <b>Respuesta:</b> \(P(4)=25\).
     </div>
 
     <!-- 2. OPERACIONES CON POLINOMIOS -->
     <h3>2. Operaciones con polinomios</h3>
-    <p>Las operaciones son similares a la aritmética, pero se respetan los términos semejantes.</p>
 
     <h4>Adición y sustracción</h4>
+    <p>Se suman o restan solo los términos semejantes.</p>
     <div class="ejemplo">
-      <b>Ejemplo:</b> \( (3x^2+5x-4) + (2x^2-3x+7) - (x^2+2x-1)\).<br>
+      <b>Ejemplo:</b> \((3x^2+5x-4)+(2x^2-3x+7)-(x^2+2x-1)\).<br>
+      <ol>
+        <li>Unimos semejantes: \(3x^2+2x^2-x^2=4x^2\).</li>
+        <li>Lineales: \(5x-3x-2x=0\).</li>
+        <li>Constantes: \(-4+7-1=2\).</li>
+      </ol>
       <b>Resultado:</b> \(4x^2+2\).
     </div>
 
     <h4>Multiplicación</h4>
     <div class="ejemplo">
-      <b>Ejemplo:</b> \( (x+2)(x^2+x+1) = x^3+3x^2+3x+2\).
+      <b>Ejemplo:</b> \((x+2)(x^2+x+1)\).<br>
+      <ol>
+        <li>Distribuimos: \(x(x^2+x+1)+2(x^2+x+1)\).</li>
+        <li>Resultado: \(x^3+x^2+x+2x^2+2x+2\).</li>
+        <li>Reducimos: \(x^3+3x^2+3x+2\).</li>
+      </ol>
     </div>
 
     <h4>División</h4>
     <div class="ejemplo">
-      <b>Ejemplo contextualizado:</b> El volumen de un prisma es \(2x^3+4x^2-6x\). Si el área de la base es \(2x\), hallar la altura.<br>
-      <b>Respuesta:</b> Altura = \(x^2+2x-3\).
-    </div>
-
-    <div class="resumen">
-      <b>Resumen:</b> Para operar polinomios se suman o restan términos semejantes. La multiplicación usa distributiva y la división puede ser larga o sintética.
+      <b>Ejemplo contextualizado:</b> El volumen de un prisma es \(2x^3+4x^2-6x\).  
+      Si el área de la base es \(2x\), hallar la altura.<br>
+      <ol>
+        <li>Dividimos: \((2x^3+4x^2-6x)\div(2x)\).</li>
+        <li>Resultado: \(x^2+2x-3\).</li>
+      </ol>
     </div>
 
     <!-- 3. PRODUCTOS NOTABLES -->
     <h3>3. Productos notables</h3>
-    <p>Son multiplicaciones con fórmulas especiales que agilizan cálculos.</p>
+    <p>Son multiplicaciones de polinomios que siguen fórmulas fijas y simplifican cálculos.</p>
     <ul>
       <li>Cuadrado de binomio: \((a+b)^2=a^2+2ab+b^2\).</li>
       <li>Diferencia de cuadrados: \((a-b)(a+b)=a^2-b^2\).</li>
@@ -235,19 +240,9 @@
       <li>Trinomio cuadrado perfecto: \((a+b+c)^2=a^2+b^2+c^2+2ab+2ac+2bc\).</li>
     </ul>
 
-    <div class="ejemplo">
-      <b>Ejemplo contextualizado:</b> Un cubo de arista \((x+2)\) m tiene volumen:  
-      \((x+2)^3=x^3+6x^2+12x+8\).
-    </div>
-
-    <div class="resumen">
-      <b>Resumen:</b> Los productos notables permiten calcular cuadrados, cubos o expansiones sin multiplicar término a término.
-    </div>
-
     <!-- 4. TRIÁNGULO DE PASCAL -->
     <h3>4. Triángulo de Pascal y Teorema del Binomio</h3>
-    <p>El triángulo de Pascal da los coeficientes de \((a+b)^n\). El binomio de Newton lo generaliza.</p>
-
+    <p>El triángulo de Pascal da los coeficientes de \((a+b)^n\).</p>
     <table>
       <tr><td>1</td></tr>
       <tr><td>1</td><td>1</td></tr>
@@ -257,28 +252,46 @@
       <tr><td>1</td><td>5</td><td>10</td><td>10</td><td>5</td><td>1</td></tr>
     </table>
 
-    <div class="ejemplo">
-      <b>Ejemplo contextualizado:</b> En probabilidad, la expansión de \((p+q)^5\) da la distribución binomial de 5 ensayos.
-    </div>
-
-    <div class="resumen">
-      <b>Resumen:</b> El triángulo de Pascal genera coeficientes. El binomio de Newton expande cualquier potencia de un binomio.
-    </div>
-
     <!-- 5. DIVISIÓN SINTÉTICA -->
     <h3>5. División sintética y cocientes notables</h3>
-    <p>La división sintética se aplica cuando el divisor es de la forma \((x-a)\). Los cocientes notables ayudan a factorizar sumas y diferencias de cubos.</p>
-
+    <p>La división sintética se aplica cuando el divisor es de la forma \((x-a)\).</p>
     <div class="ejemplo">
-      <b>Ejemplo:</b> \(x^3-27=(x-3)(x^2+3x+9)\).
+      <b>Ejemplo:</b> \((2x^3-3x^2+4x-5)\div(x-1)\).  
+      <b>Resultado:</b> \(2x^2-x+3\), residuo \(-2\).
     </div>
 
+    <!-- 6. FACTORIZACIÓN -->
+    <h3>6. Factorización</h3>
+    <p>Consiste en expresar un polinomio como producto de factores más simples.</p>
+    <ul>
+      <li>Factor común.</li>
+      <li>Agrupación de términos.</li>
+      <li>Diferencia de cuadrados.</li>
+      <li>Trinomio cuadrado perfecto.</li>
+      <li>Trinomio general \(ax^2+bx+c\).</li>
+      <li>Suma y diferencia de cubos.</li>
+    </ul>
+
     <div class="ejemplo">
-      <b>Ejemplo contextualizado:</b> Un tanque tiene volumen \(x^3+8=(x+2)(x^2-2x+4)\).
+      <b>Ejemplo:</b> \(x^2+5x+6=(x+2)(x+3)\).
     </div>
 
-    <div class="resumen">
-      <b>Resumen:</b> La división sintética simplifica cálculos con divisores lineales. Los cocientes notables permiten factorizar cubos.
+    <!-- 7. ECUACIONES -->
+    <h3>7. Ecuaciones algebraicas</h3>
+    <p>Son igualdades con incógnitas. Resolver significa encontrar los valores que las cumplen.</p>
+    <div class="ejemplo">
+      <b>Ejemplo:</b> Resolver \(2x+5=15\).  
+      <ol>
+        <li>Restamos 5: \(2x=10\).</li>
+        <li>Dividimos entre 2: \(x=5\).</li>
+      </ol>
+    </div>
+    <div class="ejemplo">
+      <b>Ejemplo:</b> Resolver \(x^2-9=0\).  
+      <ol>
+        <li>Sumamos 9: \(x^2=9\).</li>
+        <li>Raíz cuadrada: \(x=3\) o \(x=-3\).</li>
+      </ol>
     </div>
   </main>
 

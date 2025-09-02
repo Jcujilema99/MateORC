@@ -61,6 +61,13 @@
       border-radius: 6px;
       overflow-x: auto;
     }
+    .explicacion {
+      background: #eef2ff;
+      border-left: 5px solid #9333ea;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+    }
     .fecha {
       text-align: center;
       font-weight: bold;
@@ -91,9 +98,9 @@
       margin-top: auto;
     }
     footer span { color: #facc15; font-weight: bold; }
-    svg { margin-top: 1rem; max-width: 100%; height: auto; }
+    svg { margin-top: 1rem; width: 100%; height: auto; display: block; }
 
-    /* 📱 Ajustes responsive */
+    /* 📱 Responsive */
     @media (max-width: 768px) {
       header h1 { font-size: 1.2rem; }
       nav a { font-size: 0.8rem; padding: 5px 10px; }
@@ -108,7 +115,7 @@
       nav a { width: 90%; text-align: center; }
     }
 
-    /* Modo impresión */
+    /* 🖨️ Modo impresión */
     @media print {
       header, nav, .btn-imprimir, footer {
         display: none !important;
@@ -151,8 +158,16 @@
 
     <!-- Números racionales -->
     <h3>1. Números racionales</h3>
+    <div class="explicacion">
+      Un número <b>racional</b> es todo número que puede expresarse como el cociente de dos enteros:  
+      \( \tfrac{a}{b} \), donde \(a \in \mathbb{Z}\), \(b \in \mathbb{Z}\setminus\{0\}\).  
+      Incluyen fracciones, decimales exactos y periódicos, y números enteros.
+    </div>
 
     <h4>🔹 Representación gráfica</h4>
+    <div class="explicacion">
+      Los números racionales pueden ubicarse en la recta numérica, intercalados entre los enteros.
+    </div>
     <div class="ejemplo">
       <b>Ejemplo:</b> Ubicar \( -\tfrac{5}{4} \) y \( \tfrac{7}{6} \) en la recta numérica.<br><br>
       <svg viewBox="0 0 450 70" preserveAspectRatio="xMidYMid meet">
@@ -175,51 +190,105 @@
     </div>
 
     <h4>🔹 Fracciones equivalentes</h4>
+    <div class="explicacion">
+      Dos fracciones son <b>equivalentes</b> si representan la misma cantidad aunque tengan distintos numeradores y denominadores.
+    </div>
     <div class="ejemplo">
-      <b>Ejemplo:</b> Simplificar \( \tfrac{84}{126} = \tfrac{2}{3} \).
+      <b>Ejemplo:</b> Simplificar \( \tfrac{84}{126} \).<br><br>
+      <ol>
+        <li>MCD(84,126) = 42.</li>
+        <li>Dividimos: \( \tfrac{84}{126} = \tfrac{2}{3} \).</li>
+      </ol>
+      <b>Respuesta:</b> \( \tfrac{84}{126} = \tfrac{2}{3} \).
     </div>
 
     <h4>🔹 Relación de orden</h4>
+    <div class="explicacion">
+      Los números racionales pueden compararse convirtiéndolos a un mismo denominador o a decimal.
+    </div>
     <div class="ejemplo">
-      <b>Ejemplo:</b> Comparar \( -\tfrac{7}{8} \) y \( -\tfrac{5}{6} \).  
-      \( -\tfrac{7}{8} &lt; -\tfrac{5}{6} \).
+      <b>Ejemplo:</b> Comparar \( -\tfrac{7}{8} \) y \( -\tfrac{5}{6} \).<br><br>
+      <ol>
+        <li>MCM(8,6)=24.</li>
+        <li>\( -\tfrac{7}{8}=-\tfrac{21}{24} \), \( -\tfrac{5}{6}=-\tfrac{20}{24} \).</li>
+        <li>Como -21 &lt; -20, se cumple: \( -\tfrac{7}{8} &lt; -\tfrac{5}{6} \).</li>
+      </ol>
     </div>
 
     <!-- Decimales -->
     <h3>2. Racionales decimales</h3>
+    <div class="explicacion">
+      Todo número racional puede expresarse como decimal exacto o periódico.
+    </div>
 
     <h4>🔹 Clases de decimales</h4>
+    <div class="explicacion">
+      <ul>
+        <li><b>Exactos:</b> tienen fin, ej: 0,25.</li>
+        <li><b>Periódicos puros:</b> repiten desde el inicio, ej: \(0,\overline{3}\).</li>
+        <li><b>Periódicos mixtos:</b> tienen una parte no periódica y otra periódica, ej: \(0,12\overline{3}\).</li>
+      </ul>
+    </div>
     <div class="ejemplo">
-      <b>Ejemplo:</b> \( 0,123\overline{45} \) es un <b>decimal periódico mixto</b>.
+      <b>Ejemplo:</b> Clasificar \( 0,123\overline{45} \).  
+      → Parte no periódica: "123". Parte periódica: "45".  
+      Es un decimal <b>periódico mixto</b>.
     </div>
 
     <h4>🔹 Fracción generatriz</h4>
+    <div class="explicacion">
+      La <b>fracción generatriz</b> es la fracción equivalente a un número decimal periódico.
+    </div>
     <div class="ejemplo">
-      <b>Ejemplo:</b> \(0,16\overline{6} = \tfrac{1}{6}\).
+      <b>Ejemplo:</b> Hallar la fracción generatriz de \(0,16\overline{6}\).<br><br>
+      <ol>
+        <li>Sea \(x = 0,1666...\).</li>
+        <li>Multiplicamos por 10: \(10x = 1,666...\).</li>
+        <li>Multiplicamos por 100: \(100x = 16,666...\).</li>
+        <li>Restamos: \(100x-10x=90x=15\).</li>
+        <li>Dividimos: \(x=\tfrac{15}{90}=\tfrac{1}{6}\).</li>
+      </ol>
+      <b>Respuesta:</b> \(0,16\overline{6}=\tfrac{1}{6}\).
     </div>
 
     <!-- Operaciones -->
     <h3>3. Operaciones y propiedades</h3>
+    <div class="explicacion">
+      Las operaciones con números racionales siguen las mismas reglas que las fracciones:  
+      reducir a común denominador, multiplicar en cruz, simplificar y aplicar propiedades de potencias y raíces.
+    </div>
 
     <h4>🔹 Adición y sustracción</h4>
     <div class="ejemplo">
-      \( \tfrac{5}{12} - \tfrac{7}{18} + \tfrac{11}{36} = \tfrac{1}{3} \).
+      <b>Ejemplo:</b> Resolver \( \tfrac{5}{12} - \tfrac{7}{18} + \tfrac{11}{36} \).<br><br>
+      <ol>
+        <li>MCM(12,18,36)=36.</li>
+        <li>\(5/12=15/36\), \(7/18=14/36\), \(11/36\).</li>
+        <li>Operamos: \(15-14+11=12\).</li>
+        <li>\(12/36=1/3\).</li>
+      </ol>
     </div>
 
     <h4>🔹 Multiplicación y división</h4>
     <div class="ejemplo">
-      \( \tfrac{9}{14} \times \tfrac{7}{27} = \tfrac{1}{6} \).
+      <b>Ejemplo:</b> \( \tfrac{9}{14}\times\tfrac{7}{27} \).<br>
+      → \(63/378=1/6\).
     </div>
 
     <h4>🔹 Potenciación y radicación</h4>
     <div class="ejemplo">
-      \( \left(\tfrac{2}{5}\right)^{-2} = \tfrac{25}{4} \). <br>
-      \( \sqrt[3]{\tfrac{64}{125}} = \tfrac{4}{5} \).
+      \( (\tfrac{2}{5})^{-2}=(\tfrac{5}{2})^2=\tfrac{25}{4} \). <br>
+      \( \sqrt[3]{\tfrac{64}{125}}=\tfrac{4}{5} \).
     </div>
 
     <h4>🔹 Operaciones combinadas</h4>
     <div class="ejemplo">
-      \( \tfrac{3}{4} + \left(\tfrac{2}{3} - \tfrac{5}{6}\right) \times \tfrac{9}{10} = \tfrac{3}{5} \).
+      <b>Ejemplo:</b> \( \tfrac{3}{4} + \big(\tfrac{2}{3}-\tfrac{5}{6}\big)\times\tfrac{9}{10} \).<br><br>
+      <ol>
+        <li>\(\tfrac{2}{3}=\tfrac{4}{6}\). Entonces: \(4/6-5/6=-1/6\).</li>
+        <li>\(-1/6\times9/10=-9/60=-3/20\).</li>
+        <li>\(3/4=15/20\). → \(15/20-3/20=12/20=3/5\).</li>
+      </ol>
     </div>
   </main>
 
