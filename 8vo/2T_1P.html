@@ -29,36 +29,37 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
     header h1 { margin: 0; font-size: 1.5rem; }
-    nav { margin-top: .5rem; }
+    nav { margin-top: .5rem; display: flex; flex-wrap: wrap; justify-content: center; }
     nav a {
       background: #facc15;
       padding: 6px 14px;
-      margin: 0 4px;
+      margin: 4px;
       border-radius: 20px;
       text-decoration: none;
       color: black;
       font-weight: bold;
+      font-size: 0.9rem;
     }
     .contenedor {
       flex-grow: 1;
-      max-width: 950px;
+      max-width: 1000px;
       margin: 1rem auto;
-      padding: 2rem;
+      padding: 1.5rem;
       background: white;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
-    h2 { text-align: center; color: #2563eb; }
-    h3 { color: #9333ea; margin-top: 1.5rem; }
-    h4 { color: #2563eb; margin-top: 1rem; }
-    ul { margin-left: 1.2rem; }
-    ol { margin-left: 1.5rem; }
+    h2 { text-align: center; color: #2563eb; font-size: 1.4rem; }
+    h3 { color: #9333ea; margin-top: 1.5rem; font-size: 1.2rem; }
+    h4 { color: #2563eb; margin-top: 1rem; font-size: 1rem; }
+    ul, ol { margin-left: 1.2rem; }
     .ejemplo {
       background: #f9fafb;
       border-left: 5px solid #2563eb;
       padding: 1rem;
       margin: 1rem 0;
       border-radius: 6px;
+      overflow-x: auto;
     }
     .fecha {
       text-align: center;
@@ -79,17 +80,35 @@
       cursor: pointer;
       margin-bottom: 1rem;
       font-weight: bold;
+      font-size: 0.9rem;
     }
     footer {
       text-align: center;
       background: #111827;
       color: #ddd;
       padding: 1rem;
-      font-size: .9rem;
+      font-size: .85rem;
       margin-top: auto;
     }
     footer span { color: #facc15; font-weight: bold; }
-    svg { margin-top: 1rem; }
+    svg { margin-top: 1rem; max-width: 100%; height: auto; }
+
+    /* 📱 Ajustes responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.2rem; }
+      nav a { font-size: 0.8rem; padding: 5px 10px; }
+      .contenedor { padding: 1rem; margin: 0.5rem; }
+      h2 { font-size: 1.2rem; }
+      h3 { font-size: 1rem; }
+      h4 { font-size: 0.95rem; }
+    }
+    @media (max-width: 480px) {
+      .btn-imprimir { width: 100%; padding: 12px; font-size: 1rem; }
+      nav { flex-direction: column; align-items: center; }
+      nav a { width: 90%; text-align: center; }
+    }
+
+    /* Modo impresión */
     @media print {
       header, nav, .btn-imprimir, footer {
         display: none !important;
@@ -100,8 +119,9 @@
         box-shadow: none;
         margin: 0 auto;
         border-radius: 0;
-        width: 95%;
+        width: 100%;
         max-width: 100%;
+        padding: 0;
       }
     }
   </style>
@@ -135,17 +155,8 @@
     <h4>🔹 Representación gráfica</h4>
     <div class="ejemplo">
       <b>Ejemplo:</b> Ubicar \( -\tfrac{5}{4} \) y \( \tfrac{7}{6} \) en la recta numérica.<br><br>
-      <b>Solución paso a paso:</b>
-      <ol>
-        <li>Convertimos a decimales:  
-          \(-\tfrac{5}{4} = -1,25\)  
-          \(\tfrac{7}{6} \approx 1,166...\)</li>
-        <li>\(-1,25\) se ubica a la izquierda de -1.  
-            \(1,166...\) se ubica apenas a la derecha de 1.</li>
-      </ol>
-      <svg width="450" height="70">
+      <svg viewBox="0 0 450 70" preserveAspectRatio="xMidYMid meet">
         <line x1="20" y1="35" x2="420" y2="35" stroke="black"/>
-        <!-- marcas -->
         <line x1="70" y1="30" x2="70" y2="40" stroke="black"/>
         <text x="65" y="60">-2</text>
         <line x1="145" y1="30" x2="145" y2="40" stroke="black"/>
@@ -156,7 +167,6 @@
         <text x="290" y="60">1</text>
         <line x1="370" y1="30" x2="370" y2="40" stroke="black"/>
         <text x="365" y="60">2</text>
-        <!-- puntos -->
         <circle cx="125" cy="35" r="4" fill="red"/>
         <text x="110" y="20">-5/4</text>
         <circle cx="305" cy="35" r="4" fill="blue"/>
@@ -166,25 +176,13 @@
 
     <h4>🔹 Fracciones equivalentes</h4>
     <div class="ejemplo">
-      <b>Ejemplo:</b> Simplificar \( \tfrac{84}{126} \).<br><br>
-      <b>Solución:</b>
-      <ol>
-        <li>MCD(84,126) = 42.</li>
-        <li>\( \tfrac{84}{126} = \tfrac{84 \div 42}{126 \div 42} = \tfrac{2}{3} \).</li>
-      </ol>
-      <b>Respuesta:</b> \( \tfrac{84}{126} = \tfrac{2}{3} \).
+      <b>Ejemplo:</b> Simplificar \( \tfrac{84}{126} = \tfrac{2}{3} \).
     </div>
 
     <h4>🔹 Relación de orden</h4>
     <div class="ejemplo">
-      <b>Ejemplo:</b> Comparar \( -\tfrac{7}{8} \) y \( -\tfrac{5}{6} \).<br><br>
-      <b>Solución:</b>
-      <ol>
-        <li>Denominador común: 24.</li>
-        <li>\( -\tfrac{7}{8} = -\tfrac{21}{24} \), \( -\tfrac{5}{6} = -\tfrac{20}{24} \).</li>
-        <li>Comparamos: -21/24 &lt; -20/24.</li>
-      </ol>
-      <b>Respuesta:</b> \( -\tfrac{7}{8} &lt; -\tfrac{5}{6} \).
+      <b>Ejemplo:</b> Comparar \( -\tfrac{7}{8} \) y \( -\tfrac{5}{6} \).  
+      \( -\tfrac{7}{8} &lt; -\tfrac{5}{6} \).
     </div>
 
     <!-- Decimales -->
@@ -192,26 +190,12 @@
 
     <h4>🔹 Clases de decimales</h4>
     <div class="ejemplo">
-      <b>Ejemplo:</b> Clasificar \( 0,123\overline{45} \).<br><br>
-      <ol>
-        <li>Parte no periódica: "123".</li>
-        <li>Parte periódica: "45".</li>
-      </ol>
-      <b>Respuesta:</b> Es un <b>decimal periódico mixto</b>.
+      <b>Ejemplo:</b> \( 0,123\overline{45} \) es un <b>decimal periódico mixto</b>.
     </div>
 
     <h4>🔹 Fracción generatriz</h4>
     <div class="ejemplo">
-      <b>Ejemplo:</b> Hallar la fracción generatriz de \(0,16\overline{6}\).<br><br>
-      <b>Solución:</b>
-      <ol>
-        <li>Sea \(x = 0,1666...\).</li>
-        <li>Multiplicamos por 10: \(10x = 1,666...\).</li>
-        <li>Multiplicamos por 100: \(100x = 16,666...\).</li>
-        <li>Restamos: \(100x - 10x = 90x = 15\).</li>
-        <li>Dividimos: \(x = \tfrac{15}{90} = \tfrac{1}{6}\).</li>
-      </ol>
-      <b>Respuesta:</b> \(0,16\overline{6} = \tfrac{1}{6}\).
+      <b>Ejemplo:</b> \(0,16\overline{6} = \tfrac{1}{6}\).
     </div>
 
     <!-- Operaciones -->
@@ -219,60 +203,23 @@
 
     <h4>🔹 Adición y sustracción</h4>
     <div class="ejemplo">
-      <b>Ejemplo:</b> Resolver \( \tfrac{5}{12} - \tfrac{7}{18} + \tfrac{11}{36} \).<br><br>
-      <ol>
-        <li>MCM(12,18,36) = 36.</li>
-        <li>\( \tfrac{5}{12} = \tfrac{15}{36} \), \( \tfrac{7}{18} = \tfrac{14}{36} \), \( \tfrac{11}{36} \) queda igual.</li>
-        <li>Operamos: \( 15/36 - 14/36 + 11/36 = (15 - 14 + 11)/36 = 12/36 \).</li>
-        <li>Simplificamos: \( 12/36 = 1/3 \).</li>
-      </ol>
-      <b>Respuesta:</b> El resultado es \( \tfrac{1}{3} \).
+      \( \tfrac{5}{12} - \tfrac{7}{18} + \tfrac{11}{36} = \tfrac{1}{3} \).
     </div>
 
     <h4>🔹 Multiplicación y división</h4>
     <div class="ejemplo">
-      <b>Ejemplo:</b> Calcular \( \tfrac{9}{14} \times \tfrac{7}{27} \).<br><br>
-      <ol>
-        <li>Multiplicamos numeradores y denominadores: \( 9 \times 7 = 63 \), \( 14 \times 27 = 378 \).</li>
-        <li>Resultado inicial: \( \tfrac{63}{378} \).</li>
-        <li>Simplificamos entre 63: \( \tfrac{63}{378} = \tfrac{1}{6} \).</li>
-      </ol>
-      <b>Respuesta:</b> \( \tfrac{9}{14} \times \tfrac{7}{27} = \tfrac{1}{6} \).
+      \( \tfrac{9}{14} \times \tfrac{7}{27} = \tfrac{1}{6} \).
     </div>
 
     <h4>🔹 Potenciación y radicación</h4>
     <div class="ejemplo">
-      <b>Ejemplo:</b> Resolver \( \left(\tfrac{2}{5}\right)^{-2} \).<br><br>
-      <ol>
-        <li>Exponente negativo: invertimos la fracción → \( \left(\tfrac{5}{2}\right)^2 \).</li>
-        <li>Calculamos: \( \tfrac{25}{4} \).</li>
-      </ol>
-      <b>Respuesta:</b> \( \left(\tfrac{2}{5}\right)^{-2} = \tfrac{25}{4} \).
-    </div>
-
-    <div class="ejemplo">
-      <b>Ejemplo:</b> Resolver \( \sqrt[3]{\tfrac{64}{125}} \).<br><br>
-      <ol>
-        <li>Raíz cúbica de 64 = 4.</li>
-        <li>Raíz cúbica de 125 = 5.</li>
-        <li>Resultado: \( \tfrac{4}{5} \).</li>
-      </ol>
-      <b>Respuesta:</b> \( \sqrt[3]{\tfrac{64}{125}} = \tfrac{4}{5} \).
+      \( \left(\tfrac{2}{5}\right)^{-2} = \tfrac{25}{4} \). <br>
+      \( \sqrt[3]{\tfrac{64}{125}} = \tfrac{4}{5} \).
     </div>
 
     <h4>🔹 Operaciones combinadas</h4>
     <div class="ejemplo">
-      <b>Ejemplo:</b> Resolver \( \tfrac{3}{4} + \left(\tfrac{2}{3} - \tfrac{5}{6}\right) \times \tfrac{9}{10} \).<br><br>
-      <ol>
-        <li>Dentro del paréntesis:  
-          MCM(3,6)=6 → \( \tfrac{2}{3} = \tfrac{4}{6} \).  
-          \( \tfrac{4}{6} - \tfrac{5}{6} = -\tfrac{1}{6} \).</li>
-        <li>Multiplicamos: \(-\tfrac{1}{6} \times \tfrac{9}{10} = -\tfrac{9}{60} = -\tfrac{3}{20}\).</li>
-        <li>Ahora: \( \tfrac{3}{4} + (-\tfrac{3}{20}) \).  
-            MCM(4,20)=20 → \( \tfrac{3}{4} = \tfrac{15}{20} \).  
-            \( 15/20 - 3/20 = 12/20 = 3/5 \).</li>
-      </ol>
-      <b>Respuesta:</b> El resultado es \( \tfrac{3}{5} \).
+      \( \tfrac{3}{4} + \left(\tfrac{2}{3} - \tfrac{5}{6}\right) \times \tfrac{9}{10} = \tfrac{3}{5} \).
     </div>
   </main>
 

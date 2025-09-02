@@ -29,36 +29,37 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
     header h1 { margin: 0; font-size: 1.5rem; }
-    nav { margin-top: .5rem; }
+    nav { margin-top: .5rem; display: flex; flex-wrap: wrap; justify-content: center; }
     nav a {
       background: #facc15;
       padding: 6px 14px;
-      margin: 0 4px;
+      margin: 4px;
       border-radius: 20px;
       text-decoration: none;
       color: black;
       font-weight: bold;
+      font-size: 0.9rem;
     }
     .contenedor {
       flex-grow: 1;
-      max-width: 950px;
+      max-width: 1000px;
       margin: 1rem auto;
-      padding: 2rem;
+      padding: 1.5rem;
       background: white;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
-    h2 { text-align: center; color: #0d9488; }
-    h3 { color: #9333ea; margin-top: 1.5rem; }
-    h4 { color: #0d9488; margin-top: 1rem; }
-    ul { margin-left: 1.2rem; }
-    ol { margin-left: 1.5rem; }
+    h2 { text-align: center; color: #0d9488; font-size: 1.4rem; }
+    h3 { color: #9333ea; margin-top: 1.5rem; font-size: 1.2rem; }
+    h4 { color: #0d9488; margin-top: 1rem; font-size: 1rem; }
+    ul, ol { margin-left: 1.2rem; }
     .ejemplo {
       background: #f9fafb;
       border-left: 5px solid #0d9488;
       padding: 1rem;
       margin: 1rem 0;
       border-radius: 6px;
+      overflow-x: auto;
     }
     .resumen {
       background: #fefce8;
@@ -87,13 +88,14 @@
       cursor: pointer;
       margin-bottom: 1rem;
       font-weight: bold;
+      font-size: 0.9rem;
     }
     footer {
       text-align: center;
       background: #111827;
       color: #ddd;
       padding: 1rem;
-      font-size: .9rem;
+      font-size: .85rem;
       margin-top: auto;
     }
     footer span { color: #facc15; font-weight: bold; }
@@ -101,6 +103,8 @@
       width: 100%;
       border-collapse: collapse;
       margin: 1rem 0;
+      display: block;
+      overflow-x: auto;
     }
     table, th, td {
       border: 1px solid #ccc;
@@ -108,6 +112,26 @@
       padding: 8px;
     }
     th { background: #f9fafb; }
+    table { font-size: 0.9rem; }
+
+    /* 📱 Ajustes responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.2rem; }
+      nav a { font-size: 0.8rem; padding: 5px 10px; }
+      .contenedor { padding: 1rem; margin: 0.5rem; }
+      h2 { font-size: 1.2rem; }
+      h3 { font-size: 1rem; }
+      h4 { font-size: 0.95rem; }
+      table { font-size: 0.85rem; }
+    }
+    @media (max-width: 480px) {
+      .btn-imprimir { width: 100%; padding: 12px; font-size: 1rem; }
+      nav { flex-direction: column; align-items: center; }
+      nav a { width: 90%; text-align: center; }
+      table { font-size: 0.8rem; }
+    }
+
+    /* 🖨️ Modo impresión */
     @media print {
       header, nav, .btn-imprimir, footer {
         display: none !important;
@@ -118,8 +142,9 @@
         box-shadow: none;
         margin: 0 auto;
         border-radius: 0;
-        width: 95%;
+        width: 100%;
         max-width: 100%;
+        padding: 0;
       }
     }
   </style>
@@ -182,31 +207,17 @@
     <h4>Adición y sustracción</h4>
     <div class="ejemplo">
       <b>Ejemplo:</b> \( (3x^2+5x-4) + (2x^2-3x+7) - (x^2+2x-1)\).<br>
-      <ol>
-        <li>Sumamos: \(3x^2+2x^2-x^2=4x^2\).</li>
-        <li>Suma de lineales: \(5x-3x-2x=0\).</li>
-        <li>Constantes: \(-4+7-1=2\).</li>
-      </ol>
       <b>Resultado:</b> \(4x^2+2\).
     </div>
 
     <h4>Multiplicación</h4>
     <div class="ejemplo">
-      <b>Ejemplo:</b> \( (x+2)(x^2+x+1) \).<br>
-      <ol>
-        <li>Distribuimos: \(x(x^2+x+1)+2(x^2+x+1)\).</li>
-        <li>Resultado: \(x^3+x^2+x+2x^2+2x+2\).</li>
-        <li>Reducimos: \(x^3+3x^2+3x+2\).</li>
-      </ol>
+      <b>Ejemplo:</b> \( (x+2)(x^2+x+1) = x^3+3x^2+3x+2\).
     </div>
 
     <h4>División</h4>
     <div class="ejemplo">
       <b>Ejemplo contextualizado:</b> El volumen de un prisma es \(2x^3+4x^2-6x\). Si el área de la base es \(2x\), hallar la altura.<br>
-      <ol>
-        <li>Dividimos: \((2x^3+4x^2-6x) \div (2x)\).</li>
-        <li>Resultado: \(x^2+2x-3\).</li>
-      </ol>
       <b>Respuesta:</b> Altura = \(x^2+2x-3\).
     </div>
 
@@ -247,8 +258,7 @@
     </table>
 
     <div class="ejemplo">
-      <b>Ejemplo contextualizado:</b> En probabilidad, la expansión de \((p+q)^5\) da la distribución binomial de 5 ensayos.<br>
-      Coeficientes: 1,5,10,10,5,1.
+      <b>Ejemplo contextualizado:</b> En probabilidad, la expansión de \((p+q)^5\) da la distribución binomial de 5 ensayos.
     </div>
 
     <div class="resumen">
@@ -260,16 +270,11 @@
     <p>La división sintética se aplica cuando el divisor es de la forma \((x-a)\). Los cocientes notables ayudan a factorizar sumas y diferencias de cubos.</p>
 
     <div class="ejemplo">
-      <b>Ejemplo:</b> \(x^3-27\).<br>
-      <ol>
-        <li>Diferencia de cubos: \(a^3-b^3=(a-b)(a^2+ab+b^2)\).</li>
-        <li>\(x^3-27=(x-3)(x^2+3x+9)\).</li>
-      </ol>
+      <b>Ejemplo:</b> \(x^3-27=(x-3)(x^2+3x+9)\).
     </div>
 
     <div class="ejemplo">
-      <b>Ejemplo contextualizado:</b> Un tanque tiene volumen \(x^3+8\). Para factorizar, usamos suma de cubos.<br>
-      \((x+2)(x^2-2x+4)\).
+      <b>Ejemplo contextualizado:</b> Un tanque tiene volumen \(x^3+8=(x+2)(x^2-2x+4)\).
     </div>
 
     <div class="resumen">
