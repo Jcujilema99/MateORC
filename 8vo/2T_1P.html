@@ -3,214 +3,282 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8VO Básica - Matemática (2T - 1P)</title>
+  <title>8.º Básica - Matemática - Unidad 2</title>
   <style>
-    /* ===== RESET ===== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Segoe UI", Tahoma, sans-serif;
       background: #f3f4f6;
-      color: #333;
-      line-height: 1.6;
-      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      padding-top: 110px;
+      color: #333;
     }
-
-    /* ===== HEADER ===== */
     header {
-      background: linear-gradient(90deg, #3b82f6, #9333ea);
+      background: linear-gradient(90deg, #2563eb, #9333ea);
       color: white;
-      padding: 1rem 1.5rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      animation: slideDown 1s ease;
-    }
-    header h1 {
-      font-size: 1.6rem;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    header h1::before {
-      content: "📘";
-    }
-
-    /* ===== NAV BUTTONS ===== */
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.7rem;
-    }
-    nav a {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: #111;
-      background: linear-gradient(135deg, #facc15, #f59e0b);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: all 0.3s ease-in-out;
-    }
-    nav a:hover {
-      background: linear-gradient(135deg, #fbbf24, #f59e0b);
-      color: white;
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-
-    /* ===== CONTENEDOR ===== */
-    .contenedor {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      animation: fadeIn 1.5s ease;
-      flex-grow: 1;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      color: #3b82f6;
-      margin-bottom: 1rem;
-      text-align: center;
-      animation: popIn .8s ease;
-    }
-    h3 {
-      margin-top: 1.5rem;
-      color: #9333ea;
-      font-size: 1.3rem;
-      border-left: 5px solid #9333ea;
-      padding-left: .5rem;
-    }
-    p, ul { margin: 1rem 0; font-size: 1.05rem; }
-    ul li { margin: .5rem 0; }
-
-    /* ===== BOTÓN IMPRIMIR ===== */
-    .btn-imprimir {
-      display: inline-block;
-      margin-bottom: 20px;
-      padding: 12px 20px;
-      background: linear-gradient(135deg, #10b981, #34d399);
-      color: white;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: transform .3s, box-shadow .3s;
-    }
-    .btn-imprimir:hover {
-      transform: scale(1.1);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #111827;
-      color: #d1d5db;
       text-align: center;
       padding: 1rem;
-      font-size: 0.9rem;
-      margin-top: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-    footer span {
-      color: #facc15;
+    header h1 { margin: 0; font-size: 1.5rem; }
+    nav { margin-top: .5rem; }
+    nav a {
+      background: #facc15;
+      padding: 6px 14px;
+      margin: 0 4px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: black;
       font-weight: bold;
     }
-
-    /* ===== ANIMACIONES ===== */
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
+    .contenedor {
+      flex-grow: 1;
+      max-width: 950px;
+      margin: 1rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
-    @keyframes slideDown {
-      from {transform: translateY(-100%);}
-      to {transform: translateY(0);}
+    h2 { text-align: center; color: #2563eb; }
+    h3 { color: #9333ea; margin-top: 1.5rem; }
+    h4 { color: #2563eb; margin-top: 1rem; }
+    ul { margin-left: 1.2rem; }
+    ol { margin-left: 1.5rem; }
+    .ejemplo {
+      background: #f9fafb;
+      border-left: 5px solid #2563eb;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
     }
-    @keyframes popIn {
-      0% {transform: scale(0.8); opacity: 0;}
-      100% {transform: scale(1); opacity: 1;}
+    .fecha {
+      text-align: center;
+      font-weight: bold;
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      color: #92400e;
     }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      header h1 { font-size: 1.2rem; }
-      .contenedor { padding: 1.2rem; }
-      h2 { font-size: 1.5rem; }
-      h3 { font-size: 1.1rem; }
-      p, ul { font-size: 1rem; }
+    .btn-imprimir {
+      padding: 10px 18px;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      font-weight: bold;
     }
-    @media (max-width: 480px) {
-      nav a {
-        flex: 1 1 100%;
-        justify-content: center;
-      }
-      .btn-imprimir {
-        width: 100%;
-        text-align: center;
-      }
+    footer {
+      text-align: center;
+      background: #111827;
+      color: #ddd;
+      padding: 1rem;
+      font-size: .9rem;
+      margin-top: auto;
     }
-
-    /* ===== ESTILOS DE IMPRESIÓN ===== */
+    footer span { color: #facc15; font-weight: bold; }
+    svg { margin-top: 1rem; }
     @media print {
       header, nav, .btn-imprimir, footer {
-        display: none !important; /* oculta header, menú, botón y footer */
+        display: none !important;
       }
-      body {
-        background: white;
-        color: black;
-      }
-      .contenedor {
+      @page { margin: 1cm; }
+      body { background: white; padding: 0; }
+      main.contenedor {
         box-shadow: none;
-        padding: 0;
-        margin: 0;
+        margin: 0 auto;
+        border-radius: 0;
+        width: 95%;
+        max-width: 100%;
       }
     }
   </style>
+
+  <!-- 📌 MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <!-- HEADER -->
   <header>
-    <h1>8VO.º Básica - Matemática</h1>
+    <h1>8.º Básica - Matemática</h1>
     <nav>
-       <a href="https://jcujilema99.github.io/MateORC/Index.html">🏠 Inicio</a>
-      <a href="2T_1P.html">2T - 1P</a>
+      <a href="https://jcujilema99.github.io/MateORC/Index.html">🏠 Inicio</a>
+      <a href="unidad1.html">2T - 1P</a>
     </nav>
   </header>
 
   <!-- CONTENIDO -->
-  <main class="contenedor" id="contenido">
-    <button class="btn-imprimir" onclick="guardarPDF()">📥 Imprimir / Guardar en PDF</button>
+  <main class="contenedor">
+    <div class="fecha">📅 Fecha de presentación: 8 de septiembre del 2025</div>
 
-    <h2>En proceso...</h2>
-    <p>El contenido de esta página está en desarrollo y se publicará próximamente. Por favor, vuelva más tarde para acceder a los recursos y materiales educativos.</p>
+    <button class="btn-imprimir" onclick="window.print()">📥 Imprimir / Guardar en PDF</button>
+
+    <h2>Unidad 2: Álgebra y funciones (II)<br>El conjunto de números racionales \( \mathbb{Q} \)</h2>
+
+    <!-- Números racionales -->
+    <h3>1. Números racionales</h3>
+
+    <h4>🔹 Representación gráfica</h4>
+    <div class="ejemplo">
+      <b>Ejemplo:</b> Ubicar \( -\tfrac{5}{4} \) y \( \tfrac{7}{6} \) en la recta numérica.<br><br>
+      <b>Solución paso a paso:</b>
+      <ol>
+        <li>Convertimos a decimales:  
+          \(-\tfrac{5}{4} = -1,25\)  
+          \(\tfrac{7}{6} \approx 1,166...\)</li>
+        <li>\(-1,25\) se ubica a la izquierda de -1.  
+            \(1,166...\) se ubica apenas a la derecha de 1.</li>
+      </ol>
+      <svg width="450" height="70">
+        <line x1="20" y1="35" x2="420" y2="35" stroke="black"/>
+        <!-- marcas -->
+        <line x1="70" y1="30" x2="70" y2="40" stroke="black"/>
+        <text x="65" y="60">-2</text>
+        <line x1="145" y1="30" x2="145" y2="40" stroke="black"/>
+        <text x="140" y="60">-1</text>
+        <line x1="220" y1="30" x2="220" y2="40" stroke="black"/>
+        <text x="215" y="60">0</text>
+        <line x1="295" y1="30" x2="295" y2="40" stroke="black"/>
+        <text x="290" y="60">1</text>
+        <line x1="370" y1="30" x2="370" y2="40" stroke="black"/>
+        <text x="365" y="60">2</text>
+        <!-- puntos -->
+        <circle cx="125" cy="35" r="4" fill="red"/>
+        <text x="110" y="20">-5/4</text>
+        <circle cx="305" cy="35" r="4" fill="blue"/>
+        <text x="300" y="20">7/6</text>
+      </svg>
+    </div>
+
+    <h4>🔹 Fracciones equivalentes</h4>
+    <div class="ejemplo">
+      <b>Ejemplo:</b> Simplificar \( \tfrac{84}{126} \).<br><br>
+      <b>Solución:</b>
+      <ol>
+        <li>MCD(84,126) = 42.</li>
+        <li>\( \tfrac{84}{126} = \tfrac{84 \div 42}{126 \div 42} = \tfrac{2}{3} \).</li>
+      </ol>
+      <b>Respuesta:</b> \( \tfrac{84}{126} = \tfrac{2}{3} \).
+    </div>
+
+    <h4>🔹 Relación de orden</h4>
+    <div class="ejemplo">
+      <b>Ejemplo:</b> Comparar \( -\tfrac{7}{8} \) y \( -\tfrac{5}{6} \).<br><br>
+      <b>Solución:</b>
+      <ol>
+        <li>Denominador común: 24.</li>
+        <li>\( -\tfrac{7}{8} = -\tfrac{21}{24} \), \( -\tfrac{5}{6} = -\tfrac{20}{24} \).</li>
+        <li>Comparamos: -21/24 &lt; -20/24.</li>
+      </ol>
+      <b>Respuesta:</b> \( -\tfrac{7}{8} &lt; -\tfrac{5}{6} \).
+    </div>
+
+    <!-- Decimales -->
+    <h3>2. Racionales decimales</h3>
+
+    <h4>🔹 Clases de decimales</h4>
+    <div class="ejemplo">
+      <b>Ejemplo:</b> Clasificar \( 0,123\overline{45} \).<br><br>
+      <ol>
+        <li>Parte no periódica: "123".</li>
+        <li>Parte periódica: "45".</li>
+      </ol>
+      <b>Respuesta:</b> Es un <b>decimal periódico mixto</b>.
+    </div>
+
+    <h4>🔹 Fracción generatriz</h4>
+    <div class="ejemplo">
+      <b>Ejemplo:</b> Hallar la fracción generatriz de \(0,16\overline{6}\).<br><br>
+      <b>Solución:</b>
+      <ol>
+        <li>Sea \(x = 0,1666...\).</li>
+        <li>Multiplicamos por 10: \(10x = 1,666...\).</li>
+        <li>Multiplicamos por 100: \(100x = 16,666...\).</li>
+        <li>Restamos: \(100x - 10x = 90x = 15\).</li>
+        <li>Dividimos: \(x = \tfrac{15}{90} = \tfrac{1}{6}\).</li>
+      </ol>
+      <b>Respuesta:</b> \(0,16\overline{6} = \tfrac{1}{6}\).
+    </div>
+
+    <!-- Operaciones -->
+    <h3>3. Operaciones y propiedades</h3>
+
+    <h4>🔹 Adición y sustracción</h4>
+    <div class="ejemplo">
+      <b>Ejemplo:</b> Resolver \( \tfrac{5}{12} - \tfrac{7}{18} + \tfrac{11}{36} \).<br><br>
+      <ol>
+        <li>MCM(12,18,36) = 36.</li>
+        <li>\( \tfrac{5}{12} = \tfrac{15}{36} \), \( \tfrac{7}{18} = \tfrac{14}{36} \), \( \tfrac{11}{36} \) queda igual.</li>
+        <li>Operamos: \( 15/36 - 14/36 + 11/36 = (15 - 14 + 11)/36 = 12/36 \).</li>
+        <li>Simplificamos: \( 12/36 = 1/3 \).</li>
+      </ol>
+      <b>Respuesta:</b> El resultado es \( \tfrac{1}{3} \).
+    </div>
+
+    <h4>🔹 Multiplicación y división</h4>
+    <div class="ejemplo">
+      <b>Ejemplo:</b> Calcular \( \tfrac{9}{14} \times \tfrac{7}{27} \).<br><br>
+      <ol>
+        <li>Multiplicamos numeradores y denominadores: \( 9 \times 7 = 63 \), \( 14 \times 27 = 378 \).</li>
+        <li>Resultado inicial: \( \tfrac{63}{378} \).</li>
+        <li>Simplificamos entre 63: \( \tfrac{63}{378} = \tfrac{1}{6} \).</li>
+      </ol>
+      <b>Respuesta:</b> \( \tfrac{9}{14} \times \tfrac{7}{27} = \tfrac{1}{6} \).
+    </div>
+
+    <h4>🔹 Potenciación y radicación</h4>
+    <div class="ejemplo">
+      <b>Ejemplo:</b> Resolver \( \left(\tfrac{2}{5}\right)^{-2} \).<br><br>
+      <ol>
+        <li>Exponente negativo: invertimos la fracción → \( \left(\tfrac{5}{2}\right)^2 \).</li>
+        <li>Calculamos: \( \tfrac{25}{4} \).</li>
+      </ol>
+      <b>Respuesta:</b> \( \left(\tfrac{2}{5}\right)^{-2} = \tfrac{25}{4} \).
+    </div>
+
+    <div class="ejemplo">
+      <b>Ejemplo:</b> Resolver \( \sqrt[3]{\tfrac{64}{125}} \).<br><br>
+      <ol>
+        <li>Raíz cúbica de 64 = 4.</li>
+        <li>Raíz cúbica de 125 = 5.</li>
+        <li>Resultado: \( \tfrac{4}{5} \).</li>
+      </ol>
+      <b>Respuesta:</b> \( \sqrt[3]{\tfrac{64}{125}} = \tfrac{4}{5} \).
+    </div>
+
+    <h4>🔹 Operaciones combinadas</h4>
+    <div class="ejemplo">
+      <b>Ejemplo:</b> Resolver \( \tfrac{3}{4} + \left(\tfrac{2}{3} - \tfrac{5}{6}\right) \times \tfrac{9}{10} \).<br><br>
+      <ol>
+        <li>Dentro del paréntesis:  
+          MCM(3,6)=6 → \( \tfrac{2}{3} = \tfrac{4}{6} \).  
+          \( \tfrac{4}{6} - \tfrac{5}{6} = -\tfrac{1}{6} \).</li>
+        <li>Multiplicamos: \(-\tfrac{1}{6} \times \tfrac{9}{10} = -\tfrac{9}{60} = -\tfrac{3}{20}\).</li>
+        <li>Ahora: \( \tfrac{3}{4} + (-\tfrac{3}{20}) \).  
+            MCM(4,20)=20 → \( \tfrac{3}{4} = \tfrac{15}{20} \).  
+            \( 15/20 - 3/20 = 12/20 = 3/5 \).</li>
+      </ol>
+      <b>Respuesta:</b> El resultado es \( \tfrac{3}{5} \).
+    </div>
   </main>
 
   <!-- FOOTER -->
   <footer>
     Desarrollado por <span>Ing. Jonathan Israel Cujilema Yunda</span> © 2025
   </footer>
-
-  <!-- SCRIPT -->
-  <script>
-    function guardarPDF() {
-      document.title = "5to_Mate_2T_1P"; 
-      window.print();
-    }
-  </script>
 </body>
 </html>

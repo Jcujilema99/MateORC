@@ -3,214 +3,283 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9no Básica - Matemática (2T - 1P)</title>
+  <title>9.º Básica - Matemática - Unidad 2</title>
   <style>
-    /* ===== RESET ===== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Segoe UI", Tahoma, sans-serif;
       background: #f3f4f6;
-      color: #333;
-      line-height: 1.6;
-      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      padding-top: 110px;
+      color: #333;
     }
-
-    /* ===== HEADER ===== */
     header {
-      background: linear-gradient(90deg, #3b82f6, #9333ea);
+      background: linear-gradient(90deg, #0d9488, #9333ea);
       color: white;
-      padding: 1rem 1.5rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      animation: slideDown 1s ease;
-    }
-    header h1 {
-      font-size: 1.6rem;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    header h1::before {
-      content: "📘";
-    }
-
-    /* ===== NAV BUTTONS ===== */
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.7rem;
-    }
-    nav a {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: #111;
-      background: linear-gradient(135deg, #facc15, #f59e0b);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: all 0.3s ease-in-out;
-    }
-    nav a:hover {
-      background: linear-gradient(135deg, #fbbf24, #f59e0b);
-      color: white;
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-
-    /* ===== CONTENEDOR ===== */
-    .contenedor {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      animation: fadeIn 1.5s ease;
-      flex-grow: 1;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      color: #3b82f6;
-      margin-bottom: 1rem;
-      text-align: center;
-      animation: popIn .8s ease;
-    }
-    h3 {
-      margin-top: 1.5rem;
-      color: #9333ea;
-      font-size: 1.3rem;
-      border-left: 5px solid #9333ea;
-      padding-left: .5rem;
-    }
-    p, ul { margin: 1rem 0; font-size: 1.05rem; }
-    ul li { margin: .5rem 0; }
-
-    /* ===== BOTÓN IMPRIMIR ===== */
-    .btn-imprimir {
-      display: inline-block;
-      margin-bottom: 20px;
-      padding: 12px 20px;
-      background: linear-gradient(135deg, #10b981, #34d399);
-      color: white;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: transform .3s, box-shadow .3s;
-    }
-    .btn-imprimir:hover {
-      transform: scale(1.1);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #111827;
-      color: #d1d5db;
       text-align: center;
       padding: 1rem;
-      font-size: 0.9rem;
-      margin-top: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-    footer span {
-      color: #facc15;
+    header h1 { margin: 0; font-size: 1.5rem; }
+    nav { margin-top: .5rem; }
+    nav a {
+      background: #facc15;
+      padding: 6px 14px;
+      margin: 0 4px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: black;
       font-weight: bold;
     }
-
-    /* ===== ANIMACIONES ===== */
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
+    .contenedor {
+      flex-grow: 1;
+      max-width: 950px;
+      margin: 1rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
-    @keyframes slideDown {
-      from {transform: translateY(-100%);}
-      to {transform: translateY(0);}
+    h2 { text-align: center; color: #0d9488; }
+    h3 { color: #9333ea; margin-top: 1.5rem; }
+    h4 { color: #0d9488; margin-top: 1rem; }
+    ul { margin-left: 1.2rem; }
+    ol { margin-left: 1.5rem; }
+    .ejemplo {
+      background: #f9fafb;
+      border-left: 5px solid #0d9488;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
     }
-    @keyframes popIn {
-      0% {transform: scale(0.8); opacity: 0;}
-      100% {transform: scale(1); opacity: 1;}
+    .resumen {
+      background: #fefce8;
+      border-left: 5px solid #ca8a04;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 6px;
+      font-size: 0.95rem;
     }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      header h1 { font-size: 1.2rem; }
-      .contenedor { padding: 1.2rem; }
-      h2 { font-size: 1.5rem; }
-      h3 { font-size: 1.1rem; }
-      p, ul { font-size: 1rem; }
+    .fecha {
+      text-align: center;
+      font-weight: bold;
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      color: #92400e;
     }
-    @media (max-width: 480px) {
-      nav a {
-        flex: 1 1 100%;
-        justify-content: center;
-      }
-      .btn-imprimir {
-        width: 100%;
-        text-align: center;
-      }
+    .btn-imprimir {
+      padding: 10px 18px;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      font-weight: bold;
     }
-
-    /* ===== ESTILOS DE IMPRESIÓN ===== */
+    footer {
+      text-align: center;
+      background: #111827;
+      color: #ddd;
+      padding: 1rem;
+      font-size: .9rem;
+      margin-top: auto;
+    }
+    footer span { color: #facc15; font-weight: bold; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+      text-align: center;
+      padding: 8px;
+    }
+    th { background: #f9fafb; }
     @media print {
       header, nav, .btn-imprimir, footer {
-        display: none !important; /* oculta header, menú, botón y footer */
+        display: none !important;
       }
-      body {
-        background: white;
-        color: black;
-      }
-      .contenedor {
+      @page { margin: 1cm; }
+      body { background: white; padding: 0; }
+      main.contenedor {
         box-shadow: none;
-        padding: 0;
-        margin: 0;
+        margin: 0 auto;
+        border-radius: 0;
+        width: 95%;
+        max-width: 100%;
       }
     }
   </style>
+
+  <!-- 📌 MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <!-- HEADER -->
   <header>
-    <h1>9no Básica - Matemática</h1>
+    <h1>9.º Básica - Matemática</h1>
     <nav>
-       <a href="https://jcujilema99.github.io/MateORC/Index.html">🏠 Inicio</a>
-      <a href="2T_1P.html">2T - 1P</a>
+      <a href="https://jcujilema99.github.io/MateORC/Index.html">🏠 Inicio</a>
+      <a href="unidad1.html">2T - 1P</a>
     </nav>
   </header>
 
   <!-- CONTENIDO -->
-  <main class="contenedor" id="contenido">
-    <button class="btn-imprimir" onclick="guardarPDF()">📥 Imprimir / Guardar en PDF</button>
+  <main class="contenedor">
+    <div class="fecha">📅 Fecha de presentación: 8 de septiembre del 2025</div>
+    <button class="btn-imprimir" onclick="window.print()">📥 Imprimir / Guardar en PDF</button>
 
-    <h2>En proceso...</h2>
-    <p>El contenido de esta página está en desarrollo y se publicará próximamente. Por favor, vuelva más tarde para acceder a los recursos y materiales educativos.</p>
+    <h2>Unidad 2: Álgebra y funciones (II)<br>Operaciones con expresiones algebraicas</h2>
+
+    <!-- 1. EXPRESIONES ALGEBRAICAS -->
+    <h3>1. Expresiones algebraicas</h3>
+    <p>Son combinaciones de números, variables y operaciones. Permiten generalizar cálculos y modelar situaciones reales.</p>
+
+    <h4>Tipos</h4>
+    <ul>
+      <li>Según número de términos: monomio, binomio, trinomio, polinomio.</li>
+      <li>Según el grado: lineales, cuadráticas, cúbicas, etc.</li>
+      <li>Según su forma: completos o incompletos.</li>
+    </ul>
+
+    <div class="ejemplo">
+      <b>Ejemplo algebraico:</b> Identificar \(4x^3-2x^2+7\).<br>
+      <ol>
+        <li>Tres términos → trinomio.</li>
+        <li>Grado 3 → polinomio cúbico.</li>
+        <li>Incompleto porque no aparece \(x^1\).</li>
+      </ol>
+    </div>
+
+    <div class="ejemplo">
+      <b>Ejemplo contextualizado:</b> El costo de producir \(x\) camisas es \(C(x)=2x+50\).  
+      Es un binomio lineal: 2 representa costo variable y 50 costo fijo.
+    </div>
+
+    <div class="resumen">
+      <b>Resumen:</b> Las expresiones algebraicas pueden clasificarse según términos, grado y forma. Se usan para representar cantidades variables.
+    </div>
+
+    <!-- 2. OPERACIONES CON POLINOMIOS -->
+    <h3>2. Operaciones con polinomios</h3>
+    <p>Las operaciones son similares a la aritmética, pero se respetan los términos semejantes.</p>
+
+    <h4>Adición y sustracción</h4>
+    <div class="ejemplo">
+      <b>Ejemplo:</b> \( (3x^2+5x-4) + (2x^2-3x+7) - (x^2+2x-1)\).<br>
+      <ol>
+        <li>Sumamos: \(3x^2+2x^2-x^2=4x^2\).</li>
+        <li>Suma de lineales: \(5x-3x-2x=0\).</li>
+        <li>Constantes: \(-4+7-1=2\).</li>
+      </ol>
+      <b>Resultado:</b> \(4x^2+2\).
+    </div>
+
+    <h4>Multiplicación</h4>
+    <div class="ejemplo">
+      <b>Ejemplo:</b> \( (x+2)(x^2+x+1) \).<br>
+      <ol>
+        <li>Distribuimos: \(x(x^2+x+1)+2(x^2+x+1)\).</li>
+        <li>Resultado: \(x^3+x^2+x+2x^2+2x+2\).</li>
+        <li>Reducimos: \(x^3+3x^2+3x+2\).</li>
+      </ol>
+    </div>
+
+    <h4>División</h4>
+    <div class="ejemplo">
+      <b>Ejemplo contextualizado:</b> El volumen de un prisma es \(2x^3+4x^2-6x\). Si el área de la base es \(2x\), hallar la altura.<br>
+      <ol>
+        <li>Dividimos: \((2x^3+4x^2-6x) \div (2x)\).</li>
+        <li>Resultado: \(x^2+2x-3\).</li>
+      </ol>
+      <b>Respuesta:</b> Altura = \(x^2+2x-3\).
+    </div>
+
+    <div class="resumen">
+      <b>Resumen:</b> Para operar polinomios se suman o restan términos semejantes. La multiplicación usa distributiva y la división puede ser larga o sintética.
+    </div>
+
+    <!-- 3. PRODUCTOS NOTABLES -->
+    <h3>3. Productos notables</h3>
+    <p>Son multiplicaciones con fórmulas especiales que agilizan cálculos.</p>
+    <ul>
+      <li>Cuadrado de binomio: \((a+b)^2=a^2+2ab+b^2\).</li>
+      <li>Diferencia de cuadrados: \((a-b)(a+b)=a^2-b^2\).</li>
+      <li>Cubo de binomio: \((a+b)^3=a^3+3a^2b+3ab^2+b^3\).</li>
+      <li>Trinomio cuadrado perfecto: \((a+b+c)^2=a^2+b^2+c^2+2ab+2ac+2bc\).</li>
+    </ul>
+
+    <div class="ejemplo">
+      <b>Ejemplo contextualizado:</b> Un cubo de arista \((x+2)\) m tiene volumen:  
+      \((x+2)^3=x^3+6x^2+12x+8\).
+    </div>
+
+    <div class="resumen">
+      <b>Resumen:</b> Los productos notables permiten calcular cuadrados, cubos o expansiones sin multiplicar término a término.
+    </div>
+
+    <!-- 4. TRIÁNGULO DE PASCAL -->
+    <h3>4. Triángulo de Pascal y Teorema del Binomio</h3>
+    <p>El triángulo de Pascal da los coeficientes de \((a+b)^n\). El binomio de Newton lo generaliza.</p>
+
+    <table>
+      <tr><td>1</td></tr>
+      <tr><td>1</td><td>1</td></tr>
+      <tr><td>1</td><td>2</td><td>1</td></tr>
+      <tr><td>1</td><td>3</td><td>3</td><td>1</td></tr>
+      <tr><td>1</td><td>4</td><td>6</td><td>4</td><td>1</td></tr>
+      <tr><td>1</td><td>5</td><td>10</td><td>10</td><td>5</td><td>1</td></tr>
+    </table>
+
+    <div class="ejemplo">
+      <b>Ejemplo contextualizado:</b> En probabilidad, la expansión de \((p+q)^5\) da la distribución binomial de 5 ensayos.<br>
+      Coeficientes: 1,5,10,10,5,1.
+    </div>
+
+    <div class="resumen">
+      <b>Resumen:</b> El triángulo de Pascal genera coeficientes. El binomio de Newton expande cualquier potencia de un binomio.
+    </div>
+
+    <!-- 5. DIVISIÓN SINTÉTICA -->
+    <h3>5. División sintética y cocientes notables</h3>
+    <p>La división sintética se aplica cuando el divisor es de la forma \((x-a)\). Los cocientes notables ayudan a factorizar sumas y diferencias de cubos.</p>
+
+    <div class="ejemplo">
+      <b>Ejemplo:</b> \(x^3-27\).<br>
+      <ol>
+        <li>Diferencia de cubos: \(a^3-b^3=(a-b)(a^2+ab+b^2)\).</li>
+        <li>\(x^3-27=(x-3)(x^2+3x+9)\).</li>
+      </ol>
+    </div>
+
+    <div class="ejemplo">
+      <b>Ejemplo contextualizado:</b> Un tanque tiene volumen \(x^3+8\). Para factorizar, usamos suma de cubos.<br>
+      \((x+2)(x^2-2x+4)\).
+    </div>
+
+    <div class="resumen">
+      <b>Resumen:</b> La división sintética simplifica cálculos con divisores lineales. Los cocientes notables permiten factorizar cubos.
+    </div>
   </main>
 
   <!-- FOOTER -->
   <footer>
     Desarrollado por <span>Ing. Jonathan Israel Cujilema Yunda</span> © 2025
   </footer>
-
-  <!-- SCRIPT -->
-  <script>
-    function guardarPDF() {
-      document.title = "5to_Mate_2T_1P"; 
-      window.print();
-    }
-  </script>
 </body>
 </html>
